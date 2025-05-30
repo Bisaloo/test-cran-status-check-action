@@ -35,7 +35,7 @@ jobs:
         if: steps.check-issues.outputs.should-run == 'true'
         uses: dieghernan/cran-status-check@v2
         with:
-          package: "m5"
+          package: "tensor"
           create-issue: "true"
           labels: "cran-deadline"
-          statuses: "WARN,ERROR"
+          statuses: "NOTE,WARN,ERROR"
