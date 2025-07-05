@@ -20,7 +20,7 @@ jobs:
       - name: Check
         uses: dieghernan/cran-status-check@v2
         with:
-          package: "tensor"
+          package: "imager"
           create-issue: "true"
           labels: "cran-deadline"
           statuses: "NOTE,WARN,ERROR"
