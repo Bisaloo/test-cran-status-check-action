@@ -18,6 +18,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Check for existing CRAN issues
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         id: check-issues
         run: |
           # Count open issues with CRAN-related labels
