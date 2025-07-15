@@ -47,7 +47,7 @@ jobs:
 
           pkgname <- drop(read.dcf("DESCRIPTION", "Package"))
 
-          deadline <- crandb[pkgname, "Deadline"]
+          deadline <- crandb[crandb$Package == pkgname, "Deadline"]
 
           if (is.na(deadline)) {
             quit()
