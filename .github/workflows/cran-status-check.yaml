@@ -63,7 +63,7 @@ jobs:
               "This package is failing CRAN checks and is at risk of archival.",
               "https://cran.r-project.org/web/checks/check_results_{pkgname}.html",
               "This issue was opened by https://github.com/{Sys.getenv('GITHUB_REPOSITORY')}/actions/runs/{Sys.getenv('GITHUB_RUN_ID')}.",
-              sep = "\n\n"
+              .sep = "\n\n"
             ),
             labels = list("cran-deadline")
           )
