@@ -47,19 +47,21 @@ jobs:
 
           pkgname <- drop(read.dcf("DESCRIPTION", "Package"))
 
-          deadline <- crandb[crandb$Package == pkgname, "Deadline"]
+          deadline <- crandb[pkgname, "Deadline"]
 
-          if (!is.na(deadline)) {
-            gh::gh(
-              "POST /repos/{owner_repo}/issues",
-              owner_repo = Sys.getenv("GITHUB_REPOSITORY"),
-              title = paste("Fix CRAN R CMD check issues by", deadline),
-              body = paste0(
-                "This package is failing CRAN checks and is at risk of archival.\n",
-                "https://cran.r-project.org/web/checks/check_results_",
-                pkgname,
-                ".html"
-              ),
-              labels = list("cran-deadline")
-            )
+          if (is.na(deadline)) {
+            quit()
           }
+          
+          gh::gh(
+            "POST /repos/{owner_repo}/issues",
+            owner_repo = Sys.getenv("GITHUB_REPOSITORY"),
+            title = paste("Fix CRAN R CMD check issues by", deadline),
+            body = paste0(
+              "This package is failing CRAN checks and is at risk of archival.\n",
+              "https://cran.r-project.org/web/checks/check_results_",
+              pkgname,
+              ".html"
+            ),
+            labels = list("cran-deadline")
+          )
