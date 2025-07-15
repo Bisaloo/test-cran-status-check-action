@@ -54,6 +54,6 @@ jobs:
               owner_repo = Sys.getenv("GITHUB_REPOSITORY"),
               title = paste("Fix CRAN R CMD check issues by", deadline),
               body = "This GHA workflow has been disabled. Please re-enable it when closing this issue.",
-              labels = "cran-deadline"
+              labels = list("cran-deadline")
             )
           }
