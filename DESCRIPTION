@@ -1,4 +1,4 @@
-Package: ggalt
+Package: pavo
 Title: Extra Coordinate Systems, 'Geoms', Statistical Transformations, Scales
     and Fonts for 'ggplot2'
 Version: 0.6.1
